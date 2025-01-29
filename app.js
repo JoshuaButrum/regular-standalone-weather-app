@@ -4,9 +4,21 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const port = 3000
 
+app.set('view engine', 'hbs')
+
+app.use((req, res, next) => {
+    const now = new Date().toString(
+        'hh:mm:ss'
+    )
+    console.log(now)
+    next()
+
+    app.use(express.urlencoded({ extended: false }))
+})
+
 app.use(express.static('public'))
 
-app.get('', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index', {
         title: 'Weather App',
         name: 'Josh Butrum'
