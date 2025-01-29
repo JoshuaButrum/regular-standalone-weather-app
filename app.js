@@ -5,21 +5,21 @@ const forecast = require('./utils/forecast')
 const port = 3000
 
 app.get('/', (req, res) => {
-    res.render('index', {
+    res.json('index', {
         title: 'Weather App',
         name: 'Josh Butrum'
     })
 })
 
 app.get('/about', (req, res) => {
-    res.render('about', {
+    res.json('about', {
         title: 'About',
         name: 'Josh Butrum'
     })
 })
 
 app.get('/help', (req, res) => {
-    res.render('help', {
+    res.json('help', {
         title: 'Help',
         name: 'Josh Butrum',
         helpText: 'This is some helpful text.'
