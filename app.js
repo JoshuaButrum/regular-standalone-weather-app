@@ -18,7 +18,9 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
 // Register `hbs.engine` with the Express app
-app.engine('handlebars', hbs.engine)
+app.engine('handlebars', (filePath, options, callback) => {
+    hbs.engine(filePath, options, callback)
+})
 app.set('view engine', 'handlebars')
 
 // Setup static directory to serve
